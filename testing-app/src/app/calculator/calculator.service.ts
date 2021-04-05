@@ -12,7 +12,7 @@ export class CalculatorService{
 
     subtract(x : number, y : number) : number {
         const result = x - y;
-        this.loggerService.log(`Subtract ${x} from ${y} results in ${result}`)
+        this.loggerService.log(`Subtract ${y} from ${x} results in ${result}`)
         return result;
     }
 

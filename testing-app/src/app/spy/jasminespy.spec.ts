@@ -9,7 +9,7 @@ describe("Jasmine Spy", () => {
     it("Should create a spy object and call the method", () => {
         const timeService = jasmine.createSpyObj("TimeService", ["ping"])
 
-        timeService.ping()
+        timeService.ping();
 
         expect(timeService.ping).toHaveBeenCalled()
     })

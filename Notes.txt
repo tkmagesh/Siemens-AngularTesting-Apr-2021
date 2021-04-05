@@ -52,3 +52,18 @@ $('#btnDivide').click(() => {
     const result = parseInt($('#txtN1').val()) / parseInt($('#txtN2').val())
     $('#divResult').html(result)
 })
+
+http://github.com/tkmagesh/Siemens-AngularTesting-Apr-2021
+
+SOLID Principles
+    SRP - Single Responsibility Principles
+        There should be only one reason to change the entity
+
+    OCP - Open Closed Principle
+        The entities should be created in such a way that they are 'Open' for extension and 'Closed' for modification
+
+    LSP - Liskov's Substitution Principle
+    ISP - Interface Segregation Principles
+    DIP - Dependency Inversion Principle
+        Dependencies should not be created and used in the same place
+        Dependency creation should be separated from usage
