@@ -10,7 +10,7 @@ import { GreeterService } from './greeter.service';
         <input type="text" #txtUserName>
         <input type="button" value="Greet" (click)="onGreetClick(txtUserName.value)">
         <div>{{message.text | trimtext}}</div>
-        <span>Created : <span> <small>{{message.createdAt}}</small>
+        <span>Created : <span> <small>{{message.createdAt | elapsed}}</small>
     `,
     providers : [GreeterService], 
     styleUrls : [],

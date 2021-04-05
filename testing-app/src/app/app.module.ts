@@ -7,19 +7,23 @@ import { GreeterService } from './greeter/greeter.service';
 import { TimeService } from './greeter/time.service';
 
 import { TrimTextPipe } from './pipes/trimText.pipe';
+import * as moment from 'moment';
+import { ElapsedPipe } from './pipes/elapsed.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GreeterComponent,
-    TrimTextPipe
+    TrimTextPipe,
+    ElapsedPipe
   ],
   imports: [
     BrowserModule
   ],
   providers: [
     GreeterService,
-    TimeService
+    TimeService,
+    { provide : 'MOMENT', useValue : moment}
   ],
   bootstrap: [
     GreeterComponent
