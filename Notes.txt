@@ -1,0 +1,54 @@
+Name
+Primary Skillset
+Experience in Angular
+Experience in Angular Testing
+
+Magesh Kuppan
+
+Why Angular?
+    Helps you build maintainable application
+
+maintainable = Easily Testable
+
+Angular Building Blocks
+    Module
+        Registry of application entities
+        Dependency Injection
+
+    Component
+        Presentation (html + css) + User Interaction + State
+        Sync the state changes with the UI
+        (Should behave like a 'reception office')
+
+    Directive
+        DOM manipulation
+
+    Pipe
+        Data transformation for Presentation
+
+    Service
+        Non UI responsibilities
+
+
+    const comp : CalculatorComponent = new CalculatorComponent()
+    const currencyPipe : CurrencyPipe = new CurrencyPipe()
+
+$('#btnAdd').click(() => {
+    const result = parseInt($('#txtN1').val()) + parseInt($('#txtN2').val())
+    $('#divResult').html(result)
+})
+
+$('#btnSubtract').click(() => {
+    const result = parseInt($('#txtN1').val()) - parseInt($('#txtN2').val())
+    $('#divResult').html(result)
+})
+
+$('#btnMultiply').click(() => {
+    const result = parseInt($('#txtN1').val()) * parseInt($('#txtN2').val())
+    $('#divResult').html(result)
+})
+
+$('#btnDivide').click(() => {
+    const result = parseInt($('#txtN1').val()) / parseInt($('#txtN2').val())
+    $('#divResult').html(result)
+})
