@@ -67,3 +67,13 @@ SOLID Principles
     DIP - Dependency Inversion Principle
         Dependencies should not be created and used in the same place
         Dependency creation should be separated from usage
+
+Excluding tests
+    xdescribe
+    xit
+Execute all tests
+    describe
+    it
+Focus on some tests
+    fdescribe
+    fit
