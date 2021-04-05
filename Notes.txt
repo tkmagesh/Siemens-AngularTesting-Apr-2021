@@ -77,3 +77,8 @@ Execute all tests
 Focus on some tests
     fdescribe
     fit
+
+Using moment
+npm install moment
+import * as moment from 'moment'
+moment('....').fromNow()

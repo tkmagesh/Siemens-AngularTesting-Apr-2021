@@ -9,18 +9,26 @@ import { GreeterService } from './greeter.service';
         <label for="">User Name :</label>
         <input type="text" #txtUserName>
         <input type="button" value="Greet" (click)="onGreetClick(txtUserName.value)">
-        <div>{{message | trimtext}}</div>
+        <div>{{message.text | trimtext}}</div>
+        <span>Created : <span> <small>{{message.createdAt}}</small>
     `,
     providers : [GreeterService], 
     styleUrls : [],
 })
 export class GreeterComponent{
-    message : string = '';
+    message : {
+        text : string,
+        createdAt : Date
+    } = { text : '', createdAt : null };
 
     constructor(private greeterService : GreeterService){
 
     }
+
     onGreetClick(userName : string) {
-        this.message = this.greeterService.greet(userName);
+        this.message = {
+            text : this.greeterService.greet(userName),
+            createdAt : new Date('5-Apr-2021 9:00:00 AM')
+        }
     }
 }
