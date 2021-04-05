@@ -81,7 +81,8 @@ describe("Greeter Service using Fake services", () => {
     })
 }) */
 
-describe("Greeter Service using Jasmine Spies and TestBed", () => {
+/* describe("Greeter Service using Jasmine Spies and TestBed", () => {
+
     it("Should greet 'Good Morning' when greeted before 12 hours", () => {
         //Arrange
 
@@ -117,6 +118,52 @@ describe("Greeter Service using Jasmine Spies and TestBed", () => {
             ]
         })
         
+        const userName = 'Magesh',
+            expectedResult = 'Hi Magesh, Have a good day!';
+        const greeterService = TestBed.inject(GreeterService);
+
+        //configuring the module created timeservice for our needs
+        const timeService = TestBed.inject(TimeService);
+        spyOn(timeService, "getCurrentTime").and.returnValue(new Date('5-Apr-2021 16:00:00 PM'));
+
+        //Act
+        const greetMsg = greeterService.greet(userName);
+
+        //Assert
+        expect(greetMsg).toBe(expectedResult)
+    })
+}) */
+
+
+describe("Greeter Service using Jasmine Spies and TestBed and beforeEach", () => {
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            providers : [
+                { provide : GreeterService, useClass : GreeterService } ,
+                { provide : TimeService, useClass : TimeService }
+            ]
+        });
+    });
+
+    it("Should greet 'Good Morning' when greeted before 12 hours", () => {
+        //Arrange
+        const greeterService = TestBed.inject(GreeterService);
+
+        //configuring the module created timeservice for our needs
+        const timeService = TestBed.inject(TimeService);
+        spyOn(timeService, "getCurrentTime").and.returnValue(new Date('5-Apr-2021 9:00:00 AM'));
+
+        const userName = 'Magesh',
+            expectedResult = 'Hi Magesh, Good Morning!';
+            
+        //Act
+        const greetMsg = greeterService.greet(userName);
+
+        //Assert
+        expect(greetMsg).toBe(expectedResult)
+    })
+    it("Should greet 'Good day' when greeted after 12 hours", () => {
+        //Arrange
         const userName = 'Magesh',
             expectedResult = 'Hi Magesh, Have a good day!';
         const greeterService = TestBed.inject(GreeterService);
