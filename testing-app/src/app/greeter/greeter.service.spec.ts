@@ -1,6 +1,6 @@
 import { GreeterService } from './greeter.service'
-
-class FakeTimeServiceForMorning {
+import { TimeService } from "./time.service";
+/* class FakeTimeServiceForMorning {
     getCurrentTime() : Date {
         return new Date('5-Apr-2021 9:00:00 AM')
     }
@@ -39,14 +39,20 @@ describe("Greeter Service using Fake services", () => {
         //Assert
         expect(greetMsg).toBe(expectedResult)
     })
-})
+}) */
 
 describe("Greeter Service using Jasmine Spies", () => {
     it("Should greet 'Good Morning' when greeted before 12 hours", () => {
         //Arrange
-        const morningTimeService = jasmine.createSpyObj("TimeService", {
+
+        //Creating a spy object from the scratch
+        /* const morningTimeService = jasmine.createSpyObj("TimeService", {
             getCurrentTime : new Date('5-Apr-2021 9:00:00 AM')
-        });
+        }); */
+        
+        //Creating a spy on an existing object
+        const morningTimeService = new TimeService();
+        spyOn(morningTimeService, "getCurrentTime").and.returnValue(new Date('5-Apr-2021 9:00:00 AM'))
         const greeterService = new GreeterService(morningTimeService);
         const userName = 'Magesh',
             expectedResult = 'Hi Magesh, Good Morning!';
