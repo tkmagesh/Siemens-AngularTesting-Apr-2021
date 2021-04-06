@@ -9,10 +9,9 @@ import { GreeterService } from './greeter.service';
         <label for="">User Name :</label>
         <input type="text" #txtUserName>
         <input type="button" value="Greet" (click)="onGreetClick(txtUserName.value)">
-        <div>{{message.text | trimtext}}</div>
+        <div>{{message.text}}</div>
         <span>Created : <span> <small>{{message.createdAt | elapsed}}</small>
     `,
-    providers : [GreeterService], 
     styleUrls : [],
 })
 export class GreeterComponent{
