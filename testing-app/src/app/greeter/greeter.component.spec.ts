@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing"
-import { AppModule } from '../app.module';
+import { GreeterModule } from './greeter.module';
 import { GreeterComponent } from "./greeter.component";
 import { GreeterService } from "./greeter.service";
 
@@ -12,7 +12,7 @@ fdescribe("Greeter Component", ()=> {
   beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
          imports : [
-             AppModule
+             GreeterModule
          ]
       })
       .compileComponents()
@@ -32,7 +32,7 @@ fdescribe("Greeter Component", ()=> {
 
       component.onGreetClick("Magesh");
       fixture.detectChanges();
-      
+
       expect(greeterService.greet).toHaveBeenCalledWith("Magesh");
       expect(component.message.text).toBe("A dummy greet message");
   })
