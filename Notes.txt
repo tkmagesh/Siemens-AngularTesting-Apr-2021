@@ -82,3 +82,5 @@ Using moment
 npm install moment
 import * as moment from 'moment'
 moment('....').fromNow()
+
+moment.fn.fromNow = jasmine.createSpy().and.callFake((input) => 'a month ago')
