@@ -43,6 +43,22 @@
         });
     }
 
-    window['addAsyncPromise'] = addAsyncPromise;
+    /* 
+    function addAsyncPromiseClient(x,y){
+        console.log(`[@client] triggering the service`);
+        const p = addAsyncPromise(x,y);
+        p.then(function(result){
+            console.log(`[@client] result = ${result}`);
+        });
+    } 
+    */
+
+    async function addAsyncPromiseClient(x,y){
+        console.log(`[@client] triggering the service`);
+        const result = await addAsyncPromise(x,y);
+        console.log(`[@client] result = ${result}`);
+    }
+
+    window['addAsyncPromiseClient'] = addAsyncPromiseClient;
 
 })();
