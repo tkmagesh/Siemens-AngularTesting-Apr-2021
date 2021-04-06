@@ -17,6 +17,6 @@ export const bugsTestData : Bug[] = [
       "id": 3,
       "name": "Salary not credited",
       "createdAt": new Date("2020-11-26T11:30:23.139Z"),
-      "isClosed": false
+      "isClosed": true
     }
   ]

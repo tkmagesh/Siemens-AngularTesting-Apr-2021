@@ -15,6 +15,17 @@ export class BugApiService{
         return this.http.get<Bug[]>(this.serviceEndPoint);
     }
 
+    public getById(id : number) : Observable<Bug>{
+        return this.http
+            .get<Bug>(`${this.serviceEndPoint}/${id}`);
+    }
+
+    /* public getAllOpenBugs : Observable<Bug[]> {
+        //get the bugs
+        //filter the bugs
+        //return the result
+    } */
+
     public save(bugData : Bug) : Observable<Bug> {
         if (bugData.id === 0){
             return this.http.post<Bug>(this.serviceEndPoint, bugData);
