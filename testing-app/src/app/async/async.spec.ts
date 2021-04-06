@@ -41,7 +41,27 @@ fdescribe("Async tests", () => {
 
     }))
 
+    it("testing promises", fakeAsync(() => {
+        let test = false;
 
+        Promise
+            .resolve()
+            .then(() => {
+                console.log('First "then" block executed successfully');
+                return Promise.resolve();
+            })
+            .then(() => {
+                console.log('Second "then" block executed successfully');
+                setTimeout(() => {
+                    console.log('Timer elapsed');
+                    test = true;
+                })
+            })
+
+        flush();
+        console.log('Running test assertions');
+        expect(test).toBeTrue();
+    }))
 
 
 
