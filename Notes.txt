@@ -84,3 +84,7 @@ import * as moment from 'moment'
 moment('....').fromNow()
 
 moment.fn.fromNow = jasmine.createSpy().and.callFake((input) => 'a month ago')
+
+Async Operation
+    An operation that will complete sometime in future and we dont wait for the completion
+    

@@ -97,7 +97,7 @@ describe("BugApi Service", () => {
             }, (err) => {
                 console.log(err);
                 expect(err).toBeTruthy();
-                expect(err.error.type).toBe('Bug does exist')
+                expect(err.error.type).toBe('Bug does not exist')
             });
 
         const req = httpTestingController.expectOne('http://localhost:3000/bugs/300');
